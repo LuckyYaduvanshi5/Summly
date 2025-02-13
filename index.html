@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free AI-powered document summarizer tool. Summarize PDFs, DOCs, and text files instantly using Azure AI. Perfect for students, researchers, and professionals.">
+    <meta name="keywords" content="document summarizer, AI summarizer, PDF summarizer, doc summarizer, text summarization tool, Azure AI summarizer">
+    <title>AI Document Summarizer - Instantly Summarize PDFs & Documents | Free Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-robot"></i> AI Document Summarizer</h1>
+            <p class="subtitle">Powered by Azure AI Language Service</p>
+        </header>
+
+        <section class="api-key-section">
+            <h2>Azure API Credentials</h2>
+            <div class="credentials-input">
+                <div class="input-group">
+                    <label for="endpoint">Azure Endpoint URL</label>
+                    <input type="url" id="endpoint" placeholder="Enter your Azure endpoint (e.g., https://your-resource.cognitiveservices.azure.com)" />
+                </div>
+                <div class="input-group">
+                    <label for="apiKey">Azure API Key</label>
+                    <input type="password" id="apiKey" placeholder="Enter your Azure API Key" />
+                </div>
+                <button id="saveKey" class="btn-primary">
+                    <i class="fas fa-save"></i> Save Credentials
+                </button>
+            </div>
+        </section>
+
+        <main class="tool-section">
+            <div class="input-section">
+                <h2>Upload Your Document</h2>
+                <div class="upload-area">
+                    <input type="file" id="fileUpload" accept=".pdf,.doc,.docx,.txt,.odt,.rtf" class="file-input">
+                    <label for="fileUpload" class="file-label">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Drag & drop or click to upload</span>
+                        <small>Supports PDF, DOC, DOCX, TXT, ODT, and RTF (Max 10MB)</small>
+                    </label>
+                </div>
+
+                <div id="fileInfo" class="file-info" style="display: none;"></div>
+                
+                <div id="progressContainer" class="progress-container" style="display: none;">
+                    <div class="progress">
+                        <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+                    </div>
+                    <small class="progress-text">Processing document...</small>
+                </div>
+
+                <div id="errorDisplay" class="error-message" style="display: none;"></div>
+                
+                <div class="text-input">
+                    <h3>Or Paste Your Text</h3>
+                    <textarea id="documentInput" 
+                             placeholder="Paste your document text here..."
+                             aria-label="Document text to summarize"></textarea>
+                </div>
+
+                <div class="controls">
+                    <div class="select-wrapper">
+                        <label for="summaryLength">Summary Length</label>
+                        <select id="summaryLength">
+                            <option value="short">Short Summary (3 sentences)</option>
+                            <option value="medium">Medium Summary (5 sentences)</option>
+                            <option value="long">Long Summary (8 sentences)</option>
+                        </select>
+                    </div>
+                    <button id="summarizeBtn" class="btn-primary">
+                        <i class="fas fa-magic"></i> Summarize Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <h2><i class="fas fa-file-alt"></i> Summary Result</h2>
+                <div id="loadingSpinner" class="spinner hidden"></div>
+                <div id="summaryOutput" class="summary-box">
+                    <p class="placeholder-text">Your summary will appear here...</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <p>AI-powered document summarizer tool that helps you quickly summarize PDFs, DOCs, and text files.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Document Summarizer. All rights reserved.</p>
+                <p class="signature">Made with <i class="fas fa-heart pulse"></i> by Lucky Yaduvanshi using Azure</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Load Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.0/mammoth.browser.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

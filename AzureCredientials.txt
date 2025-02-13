@@ -1,0 +1,2 @@
+Azure_Endpoint_URL: https://docssum.cognitiveservices.azure.com/
+Azure API Key: 1wAgxNg8p9IhiqSqBQsn4P2EHD0waPOp0JizGIlC5H9TsSssPLYSJQQJ99BBACYeBjFXJ3w3AAAaACOGpfVC
